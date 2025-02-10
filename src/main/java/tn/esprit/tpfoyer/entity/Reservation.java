@@ -1,22 +1,28 @@
 package tn.esprit.tpfoyer.entity;
 
 import jakarta.persistence.*;
+import jdk.jfr.BooleanFlag;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
-@Entity
+import java.util.Set;
 
+@Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Reservation {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private String idReservation;
-    private Date anneeUniversitaire;
+    private Date anneUniversitaire;
     private boolean estValide;
+    @ManyToMany
+    Set<Etudiant> etudiants;
 
-    @ManyToOne
-    @JoinColumn(name = "idChambre")
-    private Chambre chambre;
 
-    @ManyToOne
-    @JoinColumn(name = "idEtudiant")
-    private Etudiant etudiant;
 }
