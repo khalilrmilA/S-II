@@ -9,5 +9,5 @@ public interface IBlocService {
     public Bloc retrieveBloc(Long idBloc);
     public Bloc addBloc(Bloc c);
     public void removeBloc(Long idBloc);
-    public Bloc modifyChambre(Bloc bloc);
+    public Bloc modifyBloc(Bloc bloc);
 }

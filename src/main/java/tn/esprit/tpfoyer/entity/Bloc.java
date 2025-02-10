@@ -12,7 +12,7 @@ import java.util.Set;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
+
 public class Bloc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,4 +23,37 @@ public class Bloc {
     private Foyer foyer;
     @OneToMany(mappedBy = "bloc")
     Set<Chambre> chambres;
+
+    public Bloc() {
+    }
+
+    public Bloc(long idBloc, String nomBloc, long capaciteBloc) {
+        this.idBloc = idBloc;
+        this.nomBloc = nomBloc;
+        this.capaciteBloc = capaciteBloc;
+    }
+
+    public long getIdBloc() {
+        return idBloc;
+    }
+
+    public void setIdBloc(long idBloc) {
+        this.idBloc = idBloc;
+    }
+
+    public String getNomBloc() {
+        return nomBloc;
+    }
+
+    public void setNomBloc(String nomBloc) {
+        this.nomBloc = nomBloc;
+    }
+
+    public long getCapaciteBloc() {
+        return capaciteBloc;
+    }
+
+    public void setCapaciteBloc(long capaciteBloc) {
+        this.capaciteBloc = capaciteBloc;
+    }
 }
