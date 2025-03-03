@@ -10,4 +10,8 @@ public interface IBlocService {
     public Bloc addBloc(Bloc c);
     public void removeBloc(Long idBloc);
     public Bloc modifyBloc(Bloc bloc);
+   /* public void desaffecterfoyerequipe(Long idBloc, Long idFoyer);*/
+   public void assignBlocToFoyer(Long idBloc , Long foyerid);
+    public void desaffecterProjetFromEquipe(Long idBloc, Long foyerid);
+
 }
