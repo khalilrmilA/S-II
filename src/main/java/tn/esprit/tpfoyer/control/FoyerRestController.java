@@ -1,42 +1,48 @@
 package tn.esprit.tpfoyer.control;
 
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.tpfoyer.entity.Etudiant;
-import tn.esprit.tpfoyer.service.IEtudiantService;
+
+import tn.esprit.tpfoyer.entity.Foyer;
+import tn.esprit.tpfoyer.service.IFoyerService;
 
 import java.util.List;
 
+@RequiredArgsConstructor
+@RequestMapping("/foyer")
+@RestController
 public class FoyerRestController {
     @Autowired
-    IEtudiantService etudiantService;
-    // http://localhost:8089/tpfoyer/chambre/retrieve-all-chambres
-    @GetMapping("/retrieve-all-etudiant")
-    public List<Etudiant> getChambres() {
-        List<Etudiant> listEtudiants = etudiantService.retrieveAllEtudiants();
+    IFoyerService Iservicefoyer;
+    // http://localhost:8089/tpfoyer/chambre/retrieve-foyer
+    @GetMapping("/retrieve-all-foyer")
+    public List<Foyer> getFoyer() {
+        List<Foyer> listEtudiants = Iservicefoyer.retrieveAllFoyer();
         return listEtudiants;
     }
     // http://localhost:8089/tpfoyer/chambre/retrieve-chambre/8
-    @GetMapping("/retrieve-etudiant/{etudiant-id}")
-    public Etudiant retrieveChambre(@PathVariable("etudiant-id") Long idEtudiant) {
-        Etudiant etudiant = etudiantService.retrieveEtudiant(idEtudiant);
-        return etudiant;
+    @GetMapping("/retrieve-foyer/{foyer-id}")
+    public Foyer retrieveFoyer(@PathVariable("foyer-id") Long idEtudiant) {
+        Foyer foyer = Iservicefoyer.retrieveFoyer(idEtudiant);
+        return foyer;
     }
     // http://localhost:8089/tpfoyer/chambre/add-chambre
-    @PostMapping("/add-chambre")
-    public Etudiant addChambre(@RequestBody Etudiant c) {
-        Etudiant etudiant = etudiantService.addEtudiant(c);
-        return etudiant;
+    @PostMapping("/add-foyer")
+    public Foyer addChambre(@RequestBody Foyer c) {
+        Foyer foyer = Iservicefoyer.addFoyer(c);
+        return foyer;
     }
     // http://localhost:8089/tpfoyer/chambre/remove-chambre/{chambre-id}
-    @DeleteMapping("/remove-chambre/{etudent-id}")
-    public void removeEtudiant(@PathVariable("etudiant-id") Long idEtudiant) {
-        etudiantService.removeEtudiant(idEtudiant);
+    @DeleteMapping("/remove-foyer/{foyer-id}")
+    public void removeFoyer(@PathVariable("foyer-id") Long idEtudiant) {
+        Iservicefoyer.removeFoyer(idEtudiant);
     }
     // http://localhost:8089/tpfoyer/chambre/modify-chambre
-    @PutMapping("/modify-etudiant")
-    public Etudiant modifyChambre(@RequestBody Etudiant c) {
-        Etudiant etudiant = etudiantService.modifyEtudiant(c);
-        return etudiant;
+    @PutMapping("/modify-foyer")
+    public Foyer modifyFoyer(@RequestBody Foyer c) {
+        Foyer foyer = Iservicefoyer.modifyFoyer(c);
+        return foyer;
     }
 }
