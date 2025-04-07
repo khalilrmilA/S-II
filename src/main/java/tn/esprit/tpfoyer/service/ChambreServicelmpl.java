@@ -3,6 +3,7 @@ package tn.esprit.tpfoyer.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tpfoyer.entity.Chambre;
+import tn.esprit.tpfoyer.entity.TypeChambre;
 import tn.esprit.tpfoyer.repository.ChambreRepository;
 
 import java.util.List;
@@ -27,5 +28,7 @@ public class ChambreServicelmpl implements IChambreService {
     public Chambre modifyChambre(Chambre chambre) {
         return chambreRepository.save(chambre);
     }
+    public List<Chambre> searchChambre(TypeChambre tc) {return chambreRepository.findAllByTypeC(tc);}
+    public Chambre findChambreBynumero(Long nm) {return chambreRepository.findChambreBynumeroChambre(nm);}
 
 }

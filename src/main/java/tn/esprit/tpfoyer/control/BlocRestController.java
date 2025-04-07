@@ -19,10 +19,6 @@ public class BlocRestController {
     @GetMapping("/retrieve-all-bloc")
     public List<Bloc> getChambres() {
         List<Bloc> listBlocs = blocService.retrieveAllBloc();
-
-
-
-        
         return listBlocs;
     }
     // http://localhost:8089/tpfoyer/bloc/retrieve-bloc/8
@@ -55,6 +51,11 @@ public class BlocRestController {
     @PutMapping("/desaffecter-bloc-to-foyer/{bloc-id}/{foyer-id}")
     public void desaffecterProjetFromEquipe(@PathVariable("bloc-id")Long idBloc ,@PathVariable ("foyer-id")Long idFoyer)  {
         blocService.desaffecterProjetFromEquipe(idBloc,idFoyer);
+    }
+    @GetMapping("/retrieve-all-foyer-null")
+    public List<Bloc> findBlocByFoyerIsNull() {
+        List<Bloc> listBlocs = blocService.findBlocByFoyerIsNull();
+        return listBlocs;
     }
 
 }

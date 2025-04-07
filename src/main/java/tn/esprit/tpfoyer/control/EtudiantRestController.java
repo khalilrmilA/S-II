@@ -44,4 +44,5 @@ public class EtudiantRestController {
         Etudiant etudiant = etudiantService.modifyEtudiant(c);
         return etudiant;
     }
+
 }

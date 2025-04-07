@@ -47,6 +47,9 @@ public class BlocServicelmpl implements IBlocService {
         foyer.getBlocs().remove(bloc);
         foyerRepository.save(foyer);
     }
+    public List<Bloc> findBlocByFoyerIsNull() {
+        return blocRepository.findBlocByFoyerIsNull();
+    }
 
 
 }

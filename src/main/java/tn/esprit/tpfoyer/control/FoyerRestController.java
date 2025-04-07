@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/foyer")
 @RestController
 public class FoyerRestController {
-    @Autowired
+/*    @Autowired
     IFoyerService Iservicefoyer;
     // http://localhost:8089/tpfoyer/chambre/retrieve-foyer
     @GetMapping("/retrieve-all-foyer")
@@ -44,5 +44,5 @@ public class FoyerRestController {
     public Foyer modifyFoyer(@RequestBody Foyer c) {
         Foyer foyer = Iservicefoyer.modifyFoyer(c);
         return foyer;
-    }
+    }*/
 }

@@ -13,5 +13,6 @@ public interface IBlocService {
    /* public void desaffecterfoyerequipe(Long idBloc, Long idFoyer);*/
    public void assignBlocToFoyer(Long idBloc , Long foyerid);
     public void desaffecterProjetFromEquipe(Long idBloc, Long foyerid);
+    public List<Bloc> findBlocByFoyerIsNull();
 
 }

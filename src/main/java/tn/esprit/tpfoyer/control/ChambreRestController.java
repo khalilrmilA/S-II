@@ -1,10 +1,10 @@
 package tn.esprit.tpfoyer.control;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tpfoyer.entity.Chambre;
+import tn.esprit.tpfoyer.entity.TypeChambre;
 import tn.esprit.tpfoyer.service.IChambreService;
 
 import java.util.List;
@@ -43,6 +43,16 @@ public class ChambreRestController {
     @PutMapping("/modify-chambre")
     public Chambre modifyChambre(@RequestBody Chambre c) {
         Chambre chambre = chambreService.modifyChambre(c);
+        return chambre;
+    }
+    @PutMapping("/search-chambre-par-type/{type-chambre}")
+    public List<Chambre> SerachChambre(@PathVariable("type-chambre") TypeChambre ChambreType) {
+        List<Chambre>ListChamber = chambreService.searchChambre(ChambreType);
+        return ListChamber;
+    }
+    @PutMapping("/search-Numero-chambre/{numero-chambre}")
+    public Chambre findChambreBynumero(@PathVariable("numero-chambre") Long nm) {
+        Chambre chambre = chambreService.findChambreBynumero(nm);
         return chambre;
     }
 
